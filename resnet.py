@@ -74,8 +74,8 @@ class resnet:
                                 v_labels.append(idx_labels[idx])
                                 count_v+=1
                 self.x = np.array(t_pixels)
-                self.y = np.array(t_labels)
-                self.v = (np.array(v_pixels),np.array(v_labels))
+                self.y = to_categorical(np.array(t_labels))
+                self.v = (np.array(v_pixels),to_categorical(np.array(v_labels)))
                 print('Trainset Preprocess Finished.')
             elif lpath == '':
                 e_pixels, idys = [],[]
@@ -181,7 +181,7 @@ class resnet:
     def compile_model(self):
         X_shape = (self.size,self.size,3)
         self.model = self.create_model(X_shape, self.classes)
-        self.model.compile(loss='crossentropy', optimizer='Adam', metrics=['accuracy'])
+        self.model.compile(loss='categorical_crossentropy', optimizer='Adam', metrics=['accuracy'])
         print('Model Compiled.')
         self.model.summary()
 
