@@ -14,4 +14,4 @@ Both 'images' and 'labels' can't be empty, at least one of 'resize' and 'crop' c
 
 Both 'images' and 'outdir' can't be empty, at least one of 'resize' and 'crop' can't be empty.
 
-On Kaggle image classification Tests, This Resnet model earned an average test accuracy of around 0.80.
+On Kaggle image classification contests, This Resnet model earned an average test accuracy of around 0.80.
