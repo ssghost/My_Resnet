@@ -13,3 +13,5 @@ Both 'images' and 'labels' can't be empty, at least one of 'resize' and 'crop' c
 ``$python test.py --images=[image_path] --outdir=[output_path] --resize=[integer_square_side_length] --crop=[integer_square_side_length]``
 
 Both 'images' and 'outdir' can't be empty, at least one of 'resize' and 'crop' can't be empty.
+
+On Kaggle image classification Tests, This Resnet model earned an average test accuracy of around 0.80.
