@@ -197,6 +197,10 @@ class resnet:
             new_e_labels.append(float(e_labels[i,0]))
         new_e_labels = np.array(new_e_labels)
         results = pd.DataFrame({'id':self.eid, 'label':list(new_e_labels)})
-        results.to_csv(opath, header=True, index=False)
-        
+        try:
+            results.to_csv(opath, header=True, index=False)
+            print('Results Stored In %s' % opath)
+        except:
+            print('Outputpath Not Found.')
+            sys.exit()
         
