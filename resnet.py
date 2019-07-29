@@ -156,7 +156,7 @@ class resnet:
     
         X = Conv2D(i_size, (3, 3), strides = (2, 2), name = 'conv1', kernel_initializer = glorot_uniform(seed=0))(X_input)
         X = BatchNormalization(axis = 3, name = 'bn_conv1')(X)
-        X = Activation('relu')(X)
+        X = Activation('tanh')(X)
         X = MaxPooling2D((3, 3), strides=(2, 2))(X)
         
         conv_size = i_size
@@ -169,8 +169,8 @@ class resnet:
         X =  AveragePooling2D((2,2),name="avg_pool")(X)
         X = Flatten()(X)
         cnt=1
-        for fc_size in np.logspace(i_size, 1, base=0.25):
-            X = Dense(fc_size, activation='tanh', name='fc'+str(cnt), kernel_initializer = glorot_uniform(seed=0))(X)
+        for fc_size in np.logspace(i_size, classes, base=0.25):
+            X = Dense(fc_size, activation='softmax', name='fc'+str(cnt), kernel_initializer = glorot_uniform(seed=0))(X)
             X = Dropout(0.1)(X)
             cnt+=1
 
