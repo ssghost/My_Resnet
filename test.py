@@ -26,6 +26,8 @@ def main():
         else:
             assert False, 'unhandled option'
             
+    resnet = resnet.resnet()    
+    
     if loadpath != None:
         resnet().load_model(loadpath)
         
