@@ -22,12 +22,10 @@ def main():
             crop = [a,a]
         else:
             assert False, 'unhandled option'
-    
-    resnet = resnet()
         
-    resnet.input(ipath=ipath,lpath=lpath,resize=resize,crop=crop)
-    resnet.compile_model()
-    resnet.train()
+    resnet().input(ipath=ipath,lpath=lpath,resize=resize,crop=crop)
+    resnet().compile_model()
+    resnet().train()
     
 if __name__ == "__main__":
     main()
