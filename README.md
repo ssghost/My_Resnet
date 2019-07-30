@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/ssghost/My_Resnet.svg?style=svg)](https://circleci.com/gh/ssghost/My_Resnet)
 # My_Resnet
 An Automatic Compiled Resnet Deep Learning Algorithm Model.
 
