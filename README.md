@@ -10,7 +10,7 @@ Both 'images' and 'labels' can't be empty, at least one of 'resize' and 'crop' c
 
 +    For testing:
 
-``$python test.py --images=[image_path] --outdir=[output_path] --resize=[integer_square_side_length] --crop=[integer_square_side_length] --loadpath=[load_compiled_models]``
+``$python test.py --images=[image_path] --outdir=[output_path] --resize=[integer_square_side_length] --crop=[integer_square_side_length] --loadmodel=[load_compiled_models]``
 
 Both 'images' and 'outdir' can't be empty, at least one of 'resize' and 'crop' can't be empty.
 
