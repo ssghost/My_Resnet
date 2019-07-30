@@ -1,5 +1,5 @@
 import getopt, sys
-import resnet
+from resnet import *
 
 def main():
     try:
@@ -26,13 +26,13 @@ def main():
         else:
             assert False, 'unhandled option'
             
-    imagenet = resnet.resnet()    
+    resnet = resnet()    
     
     if loadpath != None:
-        imagenet.load_model(loadpath)
+        resnet.load_model(loadpath)
         
-    imagenet.input(ipath=ipath,lpath=None,resize=resize,crop=crop)
-    imagenet.test(opath)
+    resnet.input(ipath=ipath,lpath=None,resize=resize,crop=crop)
+    resnet.test(opath)
     
 if __name__ == "__main__":
     main()
