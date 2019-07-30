@@ -26,13 +26,11 @@ def main():
         else:
             assert False, 'unhandled option'
             
-    if loadpath == None:
-        resnet().input(ipath=ipath,resize=resize,crop=crop)
-        resnet().test(opath)
-    else:
+    if loadpath != None:
         resnet().load_model(loadpath)
-        resnet().input(ipath=ipath,resize=resize,crop=crop)
-        resnet().test(opath)
+        
+    resnet().input(ipath=ipath,resize=resize,crop=crop)
+    resnet().test(opath)
     
 if __name__ == "__main__":
     main()
