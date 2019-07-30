@@ -24,15 +24,13 @@ def main():
         elif o in ('-m', '--loadmodel') and type(a)==str:
             loadpath = a
         else:
-            assert False, 'unhandled option'
-            
-    resnet = resnet()    
+            assert False, 'unhandled option'    
     
     if loadpath != None:
-        resnet.load_model(loadpath)
+        resnet().load_model(loadpath)
         
-    resnet.input(ipath=ipath,lpath=None,resize=resize,crop=crop)
-    resnet.test(opath)
+    resnet().input(ipath=ipath,lpath=None,resize=resize,crop=crop)
+    resnet().test(opath)
     
 if __name__ == "__main__":
     main()
