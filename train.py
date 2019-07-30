@@ -1,5 +1,5 @@
 import getopt, sys
-import resnet
+from resnet import *
 
 def main():
     try:
@@ -23,11 +23,11 @@ def main():
         else:
             assert False, 'unhandled option'
     
-    imagenet = resnet.resnet()
+    resnet = resnet()
         
-    imagenet.input(ipath=ipath,lpath=lpath,resize=resize,crop=crop)
-    imagenet.compile_model()
-    imagenet.train()
+    resnet.input(ipath=ipath,lpath=lpath,resize=resize,crop=crop)
+    resnet.compile_model()
+    resnet.train()
     
 if __name__ == "__main__":
     main()
