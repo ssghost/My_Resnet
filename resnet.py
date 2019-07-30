@@ -1,4 +1,6 @@
 import sys
+import datetime
+import h5py
 import numpy as np
 import pandas as pd
 from PIL import Image
@@ -6,7 +8,7 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 from tensorflow.python.framework import ops
 from keras.layers import Input, Add, Dense, Activation, BatchNormalization, Flatten, Conv2D, MaxPooling2D, Dropout, AveragePooling2D
-from keras.models import Model
+from keras.models import Model, load_model
 from keras.utils.np_utils import to_categorical
 from keras.initializers import glorot_uniform
 
@@ -184,6 +186,15 @@ class resnet:
         self.model.compile(loss='categorical_crossentropy', optimizer='Adam', metrics=['accuracy'])
         print('Model Compiled.')
         self.model.summary()
+        now = datetime.datetime.now() 
+        self.model.save('Model-'+now.strftime("%Y-%m-%d %H:%M:%S")+'.h5')
+        
+    def load_model(self, loadpath):
+        if os.path.exists(loadpath):
+            self.model = load_model(loadpath)
+        else:
+            print('Loadpath Not Found.')
+            sys.exit()
 
     def train(self):
         self.model.fit(x=self.x, y=self.y, epochs=100, batch_size=32, validation_data= self.v)
