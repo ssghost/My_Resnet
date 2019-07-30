@@ -31,7 +31,7 @@ def main():
     if loadpath != None:
         imagenet.load_model(loadpath)
         
-    imagenet.input(ipath=ipath,resize=resize,crop=crop)
+    imagenet.input(ipath=ipath,lpath=None,resize=resize,crop=crop)
     imagenet.test(opath)
     
 if __name__ == "__main__":
