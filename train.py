@@ -23,11 +23,11 @@ def main():
         else:
             assert False, 'unhandled option'
     
-    res = resnet.resnet()
+    imagenet = resnet.resnet()
         
-    res.input(ipath=ipath,lpath=lpath,resize=resize,crop=crop)
-    res.compile_model()
-    res.train()
+    imagenet.input(ipath=ipath,lpath=lpath,resize=resize,crop=crop)
+    imagenet.compile_model()
+    imagenet.train()
     
 if __name__ == "__main__":
     main()
