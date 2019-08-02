@@ -4,7 +4,6 @@ import h5py
 import numpy as np
 import pandas as pd
 from PIL import Image
-import matplotlib.pyplot as plt
 import tensorflow as tf
 from tensorflow.python.framework import ops
 from keras.layers import Input, Add, Dense, Activation, BatchNormalization, Flatten, Conv2D, MaxPooling2D, Dropout, AveragePooling2D
