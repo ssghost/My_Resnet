@@ -17,7 +17,7 @@ os.environ['KERAS_BACKEND'] = 'tensorflow'
 import keras.backend as K
 K.set_image_data_format('channels_last')
 
-class resnet:
+class Resnet:
     def __init__(self):
         self.size = 0
         self.classes = 0
@@ -196,7 +196,7 @@ class resnet:
             sys.exit()
 
     def train(self):
-        self.model.fit(x=self.x, y=self.y, epochs=100, batch_size=32, validation_data= self.v)
+        self.model.fit(x=self.x, y=self.y, epochs=100, batch_size=32, validation_data= self.v, callbacks = [self.callback])
 
     def test(self, opath):
         e_labels = self.model.predict(self.epx)
@@ -213,4 +213,12 @@ class resnet:
         except:
             print('Outputpath Not Found.')
             sys.exit()
-        
+            
+    def callback(self):
+        class acc_clip(tf.keras.callbacks.Callback):
+            def on_epoch_end(self, epoch, logs={}):
+                if (logs.get('acc') > 0.99):
+                    self.model.stop_training = True
+        self.callback = acc_clip()
+         
+         
