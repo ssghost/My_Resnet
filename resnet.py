@@ -27,6 +27,7 @@ class Resnet:
         self.epx = None
         self.eid = None
         self.model = None
+        self.callback = None
     
     def preprocess(self, path, file, resize, crop):
         if resize == [0,0] and crop == [0,0]:
